@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "invoice/v2/2021-12-03",
+  "title": "Invoice",
+  "type": "object",
+  "definitions": {
+    "restricted-string": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^\\S.*\\S$|^\\S+$",
+      "examples": [
+        "Ärkehålans Aktie-Bolag"
+      ]
+    },
+    "name-value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/restricted-string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "object"
+        },
+        "encoding": {
+            "type": "string",
+            "enum": ["base64"]
+        }
+      }
+    },
+    "name-value-array": {
+      "type": "array",
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/name-value"
+      }
+    }
+  },
+  "required": [
+    "version",
+    "id",
+    "site",
+    "stage"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/restricted-string",
+      "examples": [
+        "49552f44-310b-11ec-91ac-38d547aac12a",
+        "8aa8ba9164fe955201657807e11b5f3d"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "const": "v2",
+      "examples": [
+        "v2"
+      ]
+    },
+    "site": {
+      "$ref": "#/definitions/restricted-string"
+    },
+    "stage": {
+      "$ref": "#/definitions/restricted-string",
+      "enum": ["input", "output", "final"]
+    },
+    "headers": {
+      "$ref": "#/definitions/name-value-array"
+    },
+    "rows": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "$ref": "#/definitions/name-value-array"
+      }
+    },
+    "attachments": {
+      "$ref": "#/definitions/name-value-array"
+    }
+  }
+}
