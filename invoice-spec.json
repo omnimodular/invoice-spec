@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "invoice/v2/2022-02-12",
+  "$id": "invoice/v2/2022-02-15",
   "title": "Invoice",
   "type": "object",
   "definitions": {
@@ -78,14 +78,14 @@
     },
     "flow": {
       "type": "array",
-      "maxItems": 100,
+      "maxItems": 1000,
       "items": {
         "$ref": "#/definitions/name-value-array"
       }
     },
     "rows": {
       "type": "array",
-      "maxItems": 100,
+      "maxItems": 1000,
       "items": {
         "$ref": "#/definitions/name-value-array"
       }
