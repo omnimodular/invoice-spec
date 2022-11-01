@@ -116,7 +116,7 @@
       "type": "array",
       "maxItems": 1000,
       "items": {
-        "type": "restricted-string"
+        "type": "#/definitions/restricted-string"
       }
     },
     "metrics": {
