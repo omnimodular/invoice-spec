@@ -86,7 +86,7 @@
       "$ref": "#/definitions/restricted-string"
     },
     "stage": {
-      "$ref": "#/definitions/normal-string",
+      "type": "string",
       "enum": ["input", "output", "final"]
     },
     "headers": {
