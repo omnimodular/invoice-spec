@@ -127,7 +127,8 @@
       "$ref": "#/definitions/name-value-array"
     },
     "text": {
-      "type": "string"
+      "type": "string",
+      "$comment": "base64 encoded text"
     },
     "labels": {
       "type": "array",
