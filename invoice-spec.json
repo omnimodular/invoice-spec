@@ -144,7 +144,8 @@
       }    
     },
     "images": {
-      "$ref": "#/definitions/name-value-array"
+      "$ref": "#/definitions/name-value-array",
+      "$comment": "Always base64 encoded value"
     }
   }
 }
