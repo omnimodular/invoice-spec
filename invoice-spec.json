@@ -59,7 +59,7 @@
       "items": {
         "$ref": "#/definitions/name-value"
       }
-    }
+    },
     "name-number-value": {
       "type": "object",
       "additionalProperties": false,
