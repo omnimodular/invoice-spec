@@ -48,6 +48,7 @@
         },
         "encoding": {
             "type": "string",
+            "deprecated": true,
             "enum": ["base64"]
         }
       }
