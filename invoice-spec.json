@@ -60,6 +60,23 @@
         "$ref": "#/definitions/name-value"
       }
     }
+    "name-number-value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/restricted-string"
+        },
+        "value": {
+          "type": "number"
+        }
+      }
+    },
+
   },
   "required": [
     "version",
@@ -120,7 +137,11 @@
       }
     },
     "metrics": {
-      "$ref": "#/definitions/name-value-array"
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "$ref": "#/definitions/name-number-value"
+      }    
     }
   }
 }
