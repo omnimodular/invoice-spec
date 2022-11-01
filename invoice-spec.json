@@ -48,6 +48,7 @@
         },
         "encoding": {
             "type": "string",
+            "deprecated": true,
             "enum": ["base64"]
         }
       }
@@ -58,6 +59,22 @@
       "uniqueItems": true,
       "items": {
         "$ref": "#/definitions/name-value"
+      }
+    },
+    "name-number-value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/restricted-string"
+        },
+        "value": {
+          "type": "number"
+        }
       }
     }
   },
@@ -108,6 +125,28 @@
     },
     "attachments": {
       "$ref": "#/definitions/name-value-array"
+    },
+    "text": {
+      "type": "string",
+      "$comment": "base64 encoded text"
+    },
+    "labels": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "$ref": "#/definitions/restricted-string"
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "$ref": "#/definitions/name-number-value"
+      }    
+    },
+    "images": {
+      "$ref": "#/definitions/name-value-array",
+      "$comment": "Always base64 encoded value"
     }
   }
 }
