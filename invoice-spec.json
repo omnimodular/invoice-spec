@@ -108,6 +108,19 @@
     },
     "attachments": {
       "$ref": "#/definitions/name-value-array"
+    },
+    "text": {
+      "type": "string"
+    },
+    "labels": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "restricted-string"
+      }
+    },
+    "metrics": {
+      "$ref": "#/definitions/name-value-array"
     }
   }
 }
