@@ -4,13 +4,29 @@
   "title": "Invoice",
   "type": "object",
   "definitions": {
-    "restricted-string": {
+    "normal-string": {
       "type": "string",
       "minLength": 1,
       "maxLength": 100,
       "pattern": "^\\S.*\\S$|^\\S+$",
       "examples": [
         "Ärkehålans Aktie-Bolag"
+      ]
+    },
+    "restricted-string": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50,
+      "pattern": "^(?=.{3,50}$)[a-z0-9](?:-?[a-z0-9]+)*[a-z0-9]$",
+      "examples": [
+        "foo",
+        "foobar",
+        "foo-bar",
+        "ok0",
+        "0actuallyok",
+        "cc80eb8a-35e0-11ed-90a9-38d547aac12a",
+        "00000000-35e0-11ed-90a9-000000000000",
+        "12345678901234567890123456789012345678901234567890"
       ]
     },
     "name-value": {
@@ -22,7 +38,7 @@
       ],
       "properties": {
         "name": {
-          "$ref": "#/definitions/restricted-string"
+          "$ref": "#/definitions/normal-string"
         },
         "value": {
           "type": "string"
@@ -70,7 +86,7 @@
       "$ref": "#/definitions/restricted-string"
     },
     "stage": {
-      "$ref": "#/definitions/restricted-string",
+      "$ref": "#/definitions/normal-string",
       "enum": ["input", "output", "final"]
     },
     "headers": {
