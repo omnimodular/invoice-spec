@@ -30,7 +30,7 @@ Regexp:
 or simplified if length is enforced separately:
 
 ```
-^(?=.{1,50}$)[a-z0-9](?:-?[a-z0-9]+)*$
+^[a-z0-9](?:-?[a-z0-9]+)*$
 ```
 
 Examples:
