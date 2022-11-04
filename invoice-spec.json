@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "invoice/v2/2022-11-01",
+  "$id": "invoice/v2/2022-11-03",
   "title": "Invoice",
   "type": "object",
   "definitions": {
@@ -17,15 +17,15 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 50,
-      "pattern": "^(?=.{3,50}$)[a-z0-9](?:-?[a-z0-9]+)*$",
+      "pattern": "^[a-z0-9](?:-?[a-z0-9]+)*$",
       "examples": [
+        "x",
+        "xy",
         "foo",
-        "foobar",
         "foo-bar",
         "o-k",
         "0actuallyok",
         "cc80eb8a-35e0-11ed-90a9-38d547aac12a",
-        "00000000-35e0-11ed-90a9-000000000000",
         "12345678901234567890123456789012345678901234567890"
       ]
     },
