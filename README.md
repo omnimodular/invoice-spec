@@ -1,17 +1,71 @@
 # Invoice specification / schema
 
+# Field description
+
+Required fields:
+
+- `version`
+  - Fixed string "v2".
+  
+- `site`
+  - Customer namespace
+  
+- `id`
+  - The invoice id must be unique within the `site` namespace.
+  
+- `stage`
+  - enum: `input`, `output`, or `final`.
+
+Optional fields:
+
+- `rows`
+  - array of array of `{ name, value }` objects.
+- `headers`
+  - Array of `{ name, value }` objects.
+- `attachments`
+  - array of `{ name, value }` objects. the value field must be base64 encoded.
+- `flow`
+  - array of array of { name, value } objects.
+- `text`
+  - A base64 encoded string of OCR parsed data; 
+  - and is not expected to need a token -> attachment / page logic.
+
+- `labels`
+  - is an optional non-empty array of restricted strings.
+
+- `metrics`
+  - is an optional non-empty array of name, value objects;
+  ```json
+  {
+    "name": "accuracy",
+    "value": 0.85
+  }
+  ```
+
+- `images`
+  - is an optional non-empty array of name, value objects (holding files); 
+  - the width of the images *should* be 900-1000 pixels.  The value
+    field must be base64 encoded.
+  ```json
+  {
+    "name": "Attachment X - page Y of Z.png",
+    "value": "..."
+  }
+  ```
+
 ## Azure conformance
 
 The site and id field must confirm to the following rules:
 
-Must start with a letter or number, and can only contain letters, numbers, and the dash (-) character.
-The first and last letters must be alphanumeric.
-All letters must be lowercase.
-The dash (-) character cannot be the first or last character. Consecutive dash characters are not permitted.
-Must be from 3 1 through 63 50 characters long.
-The name has been limited to give some headroom for pre- and post fixes, up to 13 characters.
+- Must start with a letter or number, and can only contain letters, numbers, and the dash (-) character.
+- The first and last letters must be alphanumeric.
+- All letters must be lowercase.
+- The dash (-) character cannot be the first or last character. Consecutive dash characters are not permitted.
+- Must be from <strike>3</strike> 1 through <strike>63</strike> 50 characters long.
+- The name has been limited to give some headroom for pre- and post fixes, up to 13 characters.
 
-Note that the field itself can be shorter than the Azure minimum of 3 characters so be sure to validate or prefix with a sufficiently long prefix (2 characters should be enough, e.g., s-)
+Note that the field itself can be shorter than the Azure minimum of 3 characters so be sure to validate or prefix with a sufficiently long prefix. 
+2 characters should be enough, e.g., `s-`.
 
 Reference: https://docs.microsoft.com/en-us/rest/api/storageservices/naming-queues-and-metadata#queue-names
 
