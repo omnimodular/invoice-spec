@@ -14,7 +14,8 @@ Required fields:
   - The invoice id must be unique within the `site` namespace.
   
 - `stage`
-  - enum: `input`, `output`, or `final`.
+  - The invoice stage must be unique for the Inovoice the same `id
+    Examples of stages are: `input`, `output`, and `final`.
 
 Optional fields:
 
