@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "invoice/v2/2022-11-03",
+  "$id": "invoice/v2/2023-01-31",
   "title": "Invoice",
   "type": "object",
   "definitions": {
@@ -103,8 +103,7 @@
       "$ref": "#/definitions/restricted-string"
     },
     "stage": {
-      "type": "string",
-      "enum": ["input", "output", "final"]
+      "$ref": "#/definitions/restricted-string"
     },
     "headers": {
       "$ref": "#/definitions/name-value-array"
