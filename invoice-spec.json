@@ -7,7 +7,7 @@
     "normal-string": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 100,
+      "maxLength": 256,
       "pattern": "^\\S.*\\S$|^\\S+$",
       "examples": [
         "Ärkehålans Aktie-Bolag"
