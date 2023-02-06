@@ -123,7 +123,11 @@
       }
     },
     "attachments": {
-      "$ref": "#/definitions/name-value-array"
+      "uniqueItems": false,
+      "maxItems": 100,
+      "items": {
+        "$ref": "#/definitions/name-value"
+      }
     },
     "text": {
       "type": "string",
