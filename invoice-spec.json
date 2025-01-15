@@ -106,7 +106,7 @@
       "$ref": "#/definitions/restricted-string"
     },
     "kind": {
-      "$ref": "string",
+      "type": "string",
       "enum": ["invoice", "purchase-order"]
     },
     "headers": {
