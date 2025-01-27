@@ -23,6 +23,8 @@ Optional fields:
   - Array of `{ name, value }` objects.
 - `rows`
   - array of array of `{ name, value }` objects.
+- `items`
+  - array of array of `{ name, value }` objects.
 - `flow`
   - array of array of { name, value } objects.
 - `attachments`
