@@ -19,14 +19,14 @@ Required fields:
 
 Optional fields:
 
-- `rows`
-  - array of array of `{ name, value }` objects.
 - `headers`
   - Array of `{ name, value }` objects.
-- `attachments`
-  - array of `{ name, value }` objects. the value field must be base64 encoded.
+- `rows`
+  - array of array of `{ name, value }` objects.
 - `flow`
   - array of array of { name, value } objects.
+- `attachments`
+  - array of `{ name, value }` objects. the value field must be base64 encoded.
 - `text`
   - A base64 encoded string of OCR parsed data; 
   - and is not expected to need a token -> attachment / page logic.
