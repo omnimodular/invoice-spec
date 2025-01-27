@@ -108,14 +108,14 @@
     "headers": {
       "$ref": "#/definitions/name-value-array"
     },
-    "flow": {
+    "rows": {
       "type": "array",
       "maxItems": 1000,
       "items": {
         "$ref": "#/definitions/name-value-array"
       }
     },
-    "rows": {
+    "flow": {
       "type": "array",
       "maxItems": 1000,
       "items": {
