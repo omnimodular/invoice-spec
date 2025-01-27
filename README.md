@@ -22,15 +22,15 @@ Optional fields:
 - `headers`
   - Array of `{ name, value }` objects.
 - `rows`
-  - array of array of `{ name, value }` objects.
+  - optional array of array of `{ name, value }` objects.
 - `items`
-  - array of array of `{ name, value }` objects.
+  - optional array of array of `{ name, value }` objects.
 - `flow`
-  - array of array of { name, value } objects.
+  - optional array of array of { name, value } objects.
 - `attachments`
   - array of `{ name, value }` objects. the value field must be base64 encoded.
 - `text`
-  - A base64 encoded string of OCR parsed data; 
+  - An optional base64 encoded string of OCR parsed data;
   - and is not expected to need a token -> attachment / page logic.
 
 - `labels`
