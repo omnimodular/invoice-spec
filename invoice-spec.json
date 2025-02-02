@@ -85,6 +85,7 @@
     "stage"
   ],
   "properties": {
+    "additionalProperties": false,
     "id": {
       "$ref": "#/definitions/restricted-string",
       "examples": [
