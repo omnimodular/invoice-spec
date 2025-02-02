@@ -14,21 +14,23 @@ Required fields:
   - The invoice id must be unique within the `site` namespace.
   
 - `stage`
-  - The invoice stage must be unique for the Inovoice the same `id
+  - The invoice stage must be unique for the Inovoice the same `id`
     Examples of stages are: `input`, `output`, and `final`.
 
 Optional fields:
 
-- `rows`
-  - array of array of `{ name, value }` objects.
 - `headers`
   - Array of `{ name, value }` objects.
+- `rows`
+  - optional array of array of `{ name, value }` objects.
+- `items`
+  - optional array of array of `{ name, value }` objects.
+- `flow`
+  - optional array of array of { name, value } objects.
 - `attachments`
   - array of `{ name, value }` objects. the value field must be base64 encoded.
-- `flow`
-  - array of array of { name, value } objects.
 - `text`
-  - A base64 encoded string of OCR parsed data; 
+  - An optional base64 encoded string of OCR parsed data;
   - and is not expected to need a token -> attachment / page logic.
 
 - `labels`
