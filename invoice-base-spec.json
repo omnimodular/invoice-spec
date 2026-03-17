@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "invoice/v2/2026-03-17",
+  "$id": "invoice/v2/2026-03-17/base",
   "title": "Invoice",
   "type": "object",
   "definitions": {
