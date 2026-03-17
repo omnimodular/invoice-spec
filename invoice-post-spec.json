@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "invoice/v2/2025-02-02",
+  "$id": "invoice/v2/2026-03-17",
   "title": "Invoice",
   "type": "object",
   "definitions": {
@@ -82,9 +82,13 @@
     "version",
     "id",
     "site",
-    "stage"
+    "stage",
+    "headers",
+    "rows",
+    "flow",
+    "attachments"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "properties": {
     "id": {
       "$ref": "#/definitions/restricted-string",
@@ -150,6 +154,26 @@
       "items": {
         "$ref": "#/definitions/name-number-value"
       }    
+    },
+    "meta": {
+      "type": "array",
+      "maxItems": 1000,
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        }
+      }  
     },
     "images": {
       "$ref": "#/definitions/name-value-array",

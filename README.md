@@ -2,42 +2,52 @@
 
 # Field description
 
-Required fields:
+The schema is split into two files:
+
+- `invoice-post-spec.json` — used for POST (creating invoices)
+- `invoice-patch-spec.json` — used for PATCH (updating invoices)
+
+# Field description
+
+Required fields (POST and PATCH):
 
 - `version`
   - Fixed string "v2".
-  
+
 - `site`
   - Customer namespace
-  
+
 - `id`
   - The invoice id must be unique within the `site` namespace.
-  
+
 - `stage`
   - The invoice stage must be unique for the Inovoice the same `id`
     Examples of stages are: `input`, `output`, and `final`.
 
-Optional fields:
+Required fields (POST only):
 
 - `headers`
   - Array of `{ name, value }` objects.
 - `rows`
-  - optional array of array of `{ name, value }` objects.
-- `items`
-  - optional array of array of `{ name, value }` objects.
+  - Array of array of `{ name, value }` objects.
 - `flow`
-  - optional array of array of { name, value } objects.
+  - Array of array of `{ name, value }` objects.
 - `attachments`
-  - array of `{ name, value }` objects. the value field must be base64 encoded.
+  - Array of `{ name, value }` objects. The value field must be base64 encoded.
+
+Optional fields:
+
+- `items`
+  - Array of array of `{ name, value }` objects.
 - `text`
-  - An optional base64 encoded string of OCR parsed data;
+  - A base64 encoded string of OCR parsed data;
   - and is not expected to need a token -> attachment / page logic.
 
 - `labels`
-  - is an optional non-empty array of restricted strings.
+  - An optional non-empty array of restricted strings.
 
 - `metrics`
-  - is an optional non-empty array of name, value objects;
+  - An optional non-empty array of name, value objects;
   ```json
   {
     "name": "accuracy",
@@ -45,8 +55,11 @@ Optional fields:
   }
   ```
 
+- `meta`
+  - An optional array of name, value objects where value is a number or string.
+
 - `images`
-  - is an optional non-empty array of name, value objects (holding files); 
+  - An optional non-empty array of name, value objects (holding files);
   - the width of the images *should* be 900-1000 pixels.  The value
     field must be base64 encoded.
   ```json
