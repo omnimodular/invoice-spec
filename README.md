@@ -1,15 +1,13 @@
 # Invoice specification / schema
 
-# Field description
-
 The schema is split into two files:
 
-- `invoice-post-spec.json` — used for POST (creating invoices)
-- `invoice-patch-spec.json` — used for PATCH (updating invoices)
+- `invoice-strict-spec.json` — full validation, used for stage `final`
+- `invoice-base-spec.json` — minimal validation, used for all other stages
 
 # Field description
 
-Required fields (POST and PATCH):
+Required fields (base and strict):
 
 - `version`
   - Fixed string "v2".
@@ -21,10 +19,10 @@ Required fields (POST and PATCH):
   - The invoice id must be unique within the `site` namespace.
 
 - `stage`
-  - The invoice stage must be unique for the Inovoice the same `id`
+  - The invoice stage must be unique for the Invoice with the same `id`
     Examples of stages are: `input`, `output`, and `final`.
 
-Required fields (POST only):
+Required fields (strict only):
 
 - `headers`
   - Array of `{ name, value }` objects.
